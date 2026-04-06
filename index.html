@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UTS Trip Tracking Service - 24814333</title>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="js/main.js" defer></script>
+    </head>
+
+    <body>
+        <h1>UTS Trip Tracking Service</h1>
+
+        <p>Welcome to the UTS Trip Tracking Service!</p>
+        <p>If you have added a trip already, please select it from the list below to view it.</p>
+        <table id="add-trips-table">
+            <thead>
+                <tr>
+                    <th>Airline Booking Reference</th>
+                    <th>Origin City</th>
+                    <th>Destination City</th>
+                    <th>Date of Departure</th>
+                    <th>Departure Time</th>
+                    <th>Seats Booked</th>
+                    <th>View</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="added-trips-body">
+            </tbody>
+        </table>
+
+        <p>If you have not added a trip yet, please click the "Add a Trip" button below to add one.</p>
+
+        <button id="add-trip-btn">Add a Trip</button>
+
+        <div id="add-modal" class="modal" aria-hidden="true">
+            <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+                <button id="modal-close-btn" class="modal-close" type="button" aria-label="Close">&times;</button>
+                <h2 id="booking-modal-title">Add a Trip</h2>
+
+                <label class="modal-label" for="airline-reference">Airline Reference Number</label>
+                <input id="airline-reference" class="modal-input" type="text" maxlength="30" placeholder="e.g. QF1234" />
+
+                <label class="modal-label" for="origin-city">Origin</label>
+                <select id="origin-city" class="modal-select">
+                    <option value="">Select origin city</option>
+                </select>
+
+                <label class="modal-label" for="destination-city">Destination</label>
+                <select id="destination-city" class="modal-select">
+                    <option value="">Select destination city</option>
+                </select>
+
+                <label class="modal-label" for="departure-date">Date of Departure</label>
+                <input id="departure-date" class="modal-input" type="date" />
+
+                <label class="modal-label" for="departure-time">Departure Time</label>
+                <input id="departure-time" class="modal-input" type="time" />
+
+                <label class="modal-label" for="seats-booked">Seats Booked</label>
+                <input id="seats-booked" class="modal-input" type="number" min="1" step="1" placeholder="e.g. 2" />
+
+                <p id="city-error" class="modal-error" aria-live="polite"></p>
+
+                <div class="modal-actions">
+                    <button id="modal-save-btn" class="modal-action" type="button">SAVE</button>
+                    <button id="modal-cancel-btn" class="modal-action" type="button">CLOSE</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-modal" class="modal" aria-hidden="true">
+            <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="view-modal-title">
+                <button id="view-modal-close-btn" class="modal-close" type="button" aria-label="Close">&times;</button>
+                <h2 id="view-modal-title">Trip Details</h2>
+
+                <div class="trip-details">
+                    <p><strong>Airline Reference:</strong> <span id="detail-airline-reference"></span></p>
+                    <p><strong>Origin:</strong> <span id="detail-origin"></span></p>
+                    <p><strong>Destination:</strong> <span id="detail-destination"></span></p>
+                    <p><strong>Date of Departure:</strong> <span id="detail-date"></span></p>
+                    <p><strong>Departure Time:</strong> <span id="detail-time"></span></p>
+                    <p><strong>Seats Booked:</strong> <span id="detail-seats"></span></p>
+                </div>
+
+                <div class="modal-actions">
+                    <button id="view-modal-edit-action" class="modal-action" type="button">EDIT</button>
+                    <button id="view-modal-close-action" class="modal-action" type="button">CLOSE</button>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </body>
+
+    <footer>
+        Made by Student 24814333 for 31748 Programming on the Internet.
+    </footer>
+</html>
