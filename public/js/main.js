@@ -68,6 +68,7 @@ async function deleteTrip(tripId) {
   }
 }
 
+// Load bookings from the API/server and displays them in the HTML table element.
 async function loadBookings() {
   try {
     const response = await fetch("/api/bookings");
@@ -128,7 +129,9 @@ async function loadBookings() {
 
       tbody.appendChild(row);
     });
-  } catch (err) {
+  } 
+  
+  catch (err) {
     console.error("Failed to load bookings:", err);
     document.getElementById("added-trips-body").innerHTML =
       '<tr><td colspan="8">Error loading trips. Is the server running?</td></tr>';
@@ -174,7 +177,9 @@ function setupRowActions() {
         await deleteTrip(tripId);
         closeViewModal();
         await loadBookings();
-      } catch (err) {
+      } 
+      
+      catch (err) {
         console.error("Failed to delete trip:", err);
         window.alert("Could not delete trip. Try again.");
       }
@@ -288,7 +293,9 @@ async function loadCities() {
       originSelect.appendChild(buildOption(city));
       destinationSelect.appendChild(buildOption(city));
     });
-  } catch (err) {
+  } 
+  
+  catch (err) {
     console.error("Failed to load cities:", err);
   }
 }
@@ -385,6 +392,7 @@ function setupBookingModal() {
     const departureTime = departureTimeInput.value;
     const seatsBooked = Number(seatsBookedInput.value);
 
+    // Data validation, checking if all required fields are filled and valid.
     if (!airlineReference || !originId || !destinationId || !departureDate || !departureTime) {
       if (errorMessage) {
         errorMessage.textContent = "Please complete all fields.";
@@ -406,6 +414,7 @@ function setupBookingModal() {
       return;
     }
 
+    // Edit trip if editingTripId is set, otherwise create new trip
     try {
       const isEdit = Number.isInteger(editingTripId);
       const response = await fetch(
@@ -435,7 +444,9 @@ function setupBookingModal() {
 
       closeModal();
       await loadBookings();
-    } catch (err) {
+    } 
+    
+    catch (err) {
       console.error("Failed to add booking:", err);
       if (errorMessage) {
         errorMessage.textContent = "Could not add booking. Try again.";
