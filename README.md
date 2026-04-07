@@ -27,7 +27,7 @@ The UTS Trip Tracking Service is a web application that solves the problem of ma
 - package.json: Node project metadata, dependencies, and start script
 
 ## Challenges Overcome
-One key challenge was keeping frontend and backend validation consistent so invalid trips are blocked both before submission and at the API layer. Another challenge was handling edit mode cleanly using the same modal used for creating trips, without duplicating form logic. Managing relational data was also important: trips store city IDs, but the UI must display readable city names and keep mappings accurate during edits. We also needed to handle API error states (duplicate booking references, missing records, and server failures) so users receive clear feedback. Finally, the table and modal experience had to remain usable on smaller screens, which required responsive styling and overflow-safe table behavior.
+One key challenge was keeping frontend and backend validation consistent so invalid trips are blocked both before submission and at the API layer. Another challenge was handling edit mode cleanly using the same modal used for creating trips, without duplicating form logic. Managing relational data was also important: trips store city IDs, but the UI must display readable city names and keep mappings accurate during edits. We also needed to handle API error states (duplicate booking references, missing records, and server failures) so users receive clear feedback. Finally, the table and modal experience had to remain usable on smaller screens, which required responsive styling and overflow-safe table behavior. This ended up not being developed, however behaviour is mostly functional on smaller screens.
 
 ## Quick Start (Local)
 1. Install dependencies:
